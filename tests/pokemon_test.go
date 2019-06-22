@@ -26,7 +26,7 @@ func TestPokemon(t *testing.T) {
 		"Expect to not receive an error.")
 	assert.IsType(t, &structs.Pokemon{}, result,
 		"Expect to receive a Pokemon struct.")
-	assert.NotEqual(t, nil, result.Name,
+	assert.Equal(t, "bulbasaur", result.Name,
 		"Expect to receive Bulbasaur.")
 }
 

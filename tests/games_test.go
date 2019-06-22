@@ -26,7 +26,7 @@ func TestGeneration(t *testing.T) {
 		"Expect to not receive an error.")
 	assert.IsType(t, &structs.Generation{}, result,
 		"Expect to receive a Generation struct.")
-	assert.NotEqual(t, nil, result.MainRegion.Name,
+	assert.Equal(t, "kanto", result.MainRegion.Name,
 		"Expect to receive Kanto.")
 }
 
