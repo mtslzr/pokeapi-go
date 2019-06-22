@@ -1,5 +1,3 @@
-// +build !quick
-
 package tests
 
 import (

@@ -1,11 +1,8 @@
-all: deps testall
+all: deps test
 
 deps: tidy vend
 
 test:
-	go test -v -tags quick ./tests/...
-
-testall:
 	go test -v ./tests/...
 
 tidy:

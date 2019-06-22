@@ -29,20 +29,14 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
   ```go
   b := pokeapi.Resource("berry")
-  fmt.Println(b)
   ```
 
-  ```json
-  {
-    "count": 64,
-    "next": "https://pokeapi.co/api/v2/berry?offset=20&limit=20",
-    "previous": null,
-    "results": [
-      {
-        "name": "cheri",
-        "url": "https://pokeapi.co/api/v2/berry/1/"
-      },
-  //...
+  #### Single Berry
+
+  *Can pass an ID (e.g. "1") or name (e.g. "cheri").*
+
+  ```go
+  b := pokeapi.Berry("cheri")
   ```
 
 </details>
@@ -54,20 +48,14 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
   ```go
   b := pokeapi.Resource("berry-firmness")
-  fmt.Println(b)
   ```
 
-  ```json
-  {
-    "count": 5,
-    "next": null,
-    "previous": null,
-    "results": [
-      {
-        "name": "very-soft",
-        "url": "https://pokeapi.co/api/v2/berry-firmness/1/"
-      },
-  //...
+  #### Single Berry Firmness
+
+  *Can pass an ID (e.g. "1") or name (e.g. "very-soft").*
+
+  ```go
+  b := pokeapi.BerryFirmness("very-soft")
   ```
 
 </details>
@@ -79,20 +67,14 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
   ```go
   b := pokeapi.Resource("berry-flavor")
-  fmt.Println(b)
   ```
 
-  ```json
-  {
-    "count": 5,
-    "next": null,
-    "previous": null,
-    "results": [
-      {
-        "name": "spicy",
-        "url": "https://pokeapi.co/api/v2/berry-flavor/1/"
-      },
-  //...
+  #### Single Berry
+
+  *Can pass an ID (e.g. "1") or name (e.g. "spicy").*
+
+  ```go
+  b := pokeapi.BerryFlavor("spicy")
   ```
 
 </details>
@@ -121,10 +103,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
 Current progress on remaining endpoints. **Bold** are partially implemented.
 
-### Berries
-- [ ] GET /berry/{id or name}/
-- [ ] GET /berry-firmness/{id or name}/
-- [ ] GET /berry-flavor/{id or name}/
 ### Contests
 - [ ] GET /contest-type/{id or name}/
 - [ ] GET /contest-effect/{id}/
