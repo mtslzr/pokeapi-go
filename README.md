@@ -19,7 +19,6 @@ Wrapper for [Poke API](https://pokeapi.co), written in Go.
     - [Utility](#Utility)
   - [Not Implemented](#Not-Implemented)
     - [Items](#Items-1)
-    - [Locations](#Locations-1)
     - [Moves](#Moves-1)
   - [Documentation](#Documentation)
 
@@ -319,6 +318,78 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
 ### Locations
 
+<details>
+  <summary>Locations</summary>
+  
+  #### Get Locations
+
+  ```go
+  l := pokeapi.Resource("location")
+  ```
+
+  #### Get Location
+
+  *Must pass an ID (e.g. "1") or name (e.g. "canalave-city").*
+
+  ```go
+  l := pokeapi.Location("canalave-city")
+  ```
+</details>
+
+<details>
+  <summary>Location Areas</summary>
+  
+  #### Get Location Areas
+
+  ```go
+  l := pokeapi.Resource("location-area")
+  ```
+
+  #### Get Location Area
+
+  *Must pass an ID (e.g. "1") or name (e.g. "canalave-city-area").*
+
+  ```go
+  l := pokeapi.LocationArea("canalave-city-area")
+  ```
+</details>
+
+<details>
+  <summary>Pal Park Areas</summary>
+  
+  #### Get Pal Park Areas
+
+  ```go
+  l := pokeapi.Resource("pal-park-area")
+  ```
+
+  #### Get Pal Park Area
+
+  *Must pass an ID (e.g. "1") or name (e.g. "forest").*
+
+  ```go
+  l := pokeapi.PalParkArea("forest")
+  ```
+</details>
+
+<details>
+  <summary>Regions</summary>
+  
+  #### Get Regions
+
+  ```go
+  l := pokeapi.Resource("region")
+  ```
+
+  #### Get Region
+
+  *Must pass an ID (e.g. "1") or name (e.g. "kanto").*
+
+  ```go
+  l := pokeapi.Region("kanto")
+  ```
+</details>
+
 ### Machines
 
 <details>
@@ -374,11 +445,6 @@ Current progress on remaining endpoints. **Bold** are partially implemented.
 - [ ] GET /item-category/{id or name}/
 - [ ] GET /item-fling-effect/{id or name}/
 - [ ] GET /item-pocket/{id or name}/
-### Locations
-- [ ] GET /location/{id or name}/
-- [ ] GET /location-area/{id or name}/
-- [ ] GET /pal-park-area/{id or name}/
-- [ ] GET /region/{id or name}/
 ### Moves
 - [ ] GET /move/{id or name}/
 - [ ] GET /move-ailment/{id or name}/
