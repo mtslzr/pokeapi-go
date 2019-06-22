@@ -1,7 +1,12 @@
 # pokeapi-go
 [![CircleCI](https://circleci.com/gh/mtslzr/pokeapi-go.svg?style=svg)](https://circleci.com/gh/mtslzr/pokeapi-go)
 
-Wrapper for Poke API, written in Go.
+Wrapper for [Poke API](https://pokeapi.co), written in Go.
+
+* [How To](#how-to)
+* [Progress](#progress)
+* [Endpoints](#endpoints)
+* [Documentation](#documentation)
 
 ## How To
 
@@ -34,7 +39,7 @@ Current progress of endpoints. **Bold** are partially implemented.
 - [ ] GET /version/{id or name}/
 - [ ] GET /version-group/{id or name}/
 ### Items
-- [ ] GET /item{id or name}/
+- [ ] GET /item/{id or name}/
 - [ ] GET /item-attribute/{id or name}/
 - [ ] GET /item-category/{id or name}/
 - [ ] GET /item-fling-effect/{id or name}/
@@ -124,3 +129,7 @@ fmt.Println(poke.Name) // "bulbasaur"
 poke := pokeapi.Pokemon("bulbasaur")
 fmt.Println(poke.Name) // "bulbasaur"
 ```
+
+## Documentation
+
+Full API documentation can be found at [Poke API](https://pokeapi.co/docs/v2.html).
