@@ -24,7 +24,7 @@ Wrapper for [Poke API](https://pokeapi.co), written in Go. *Uses PokeAPI v2.*
     - [Utility](#Utility)
   - [Additional Options](#Additional-Options)
     - [Resource List Parameters](#Resource-List-Parameters)
-    - [Search](#Search)
+    - [Resource List Filters](#Resource-List-Filters)
 
 ## Documentation
 
@@ -964,9 +964,11 @@ When calling `pokeapi.Resource()` for any resource list, you can optionally pass
   ```
 </details>
 
-### Search
+### Resource List Filters
 
-As an alternative to `pokeapi.Resource()`, you can use Search to filter resource lists. Pass the endpoint, followed by the search term.
+As an alternative to `pokeapi.Resource()`, you can use Search to filter resource lists. Pass the endpoint, followed by the search term. Or pass a string starting with `^` to search for items starting with the search team.
+
+*result.Count is updated after the search with the new total (to get the full count, use `pokeapi.Resource()`.*
 
 <details>
   <summary>Search</summary>
@@ -975,5 +977,21 @@ As an alternative to `pokeapi.Resource()`, you can use Search to filter resource
   s := pokeapi.Search("pokemon", "saur")
   fmt.Println(len(s.Results)) // 4
   fmt.Println(s.Results[3].Name) // venusaur-mega
+  ```
+</details>
+
+<details>
+  <summary>Starts With</summary>
+
+  ```go
+  s := pokeapi.Search("pokemon", "^a")
+  fmt.Println(len(s.Results)) // 44
+  fmt.Println(s.Results[0].Name) // arbok
+  ```
+
+  ```go
+  s := pokeapi.Search("pokemon", "^bulb")
+  fmt.Println(len(s.Results)) // 1
+  fmt.Println(s.Results[0].Name) // bulbasaur
   ```
 </details>

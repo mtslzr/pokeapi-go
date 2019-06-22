@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Search function (can filter resource lists)
+- Search function for filtering resource lists
+  - Ability to filter by any string
+  - Ability to filter by "starts with" using ^
 
 ## [1.1.1] - 2019-06-22
 ### Added
