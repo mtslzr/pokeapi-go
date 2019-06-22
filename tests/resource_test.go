@@ -29,3 +29,17 @@ func TestResource(t *testing.T) {
 			"Expect to receive results with URLs.")
 	}
 }
+
+func TestResourceOffset(t *testing.T) {
+	result, _ := pokeapi.Resource("pokemon", 3)
+	assert.Equal(t, "charmander", result.Results[0].Name,
+		"Expect to receive Charmander.")
+}
+
+func TestResourceOffsetLimit(t *testing.T) {
+	result, _ := pokeapi.Resource("pokemon", 3, 3)
+	assert.Equal(t, 3, len(result.Results),
+		"Expect to receive exactly three results.")
+	assert.Equal(t, "charizard", result.Results[2].Name,
+		"Expect to receive Charizard last.")
+}
