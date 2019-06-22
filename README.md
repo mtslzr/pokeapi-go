@@ -23,17 +23,17 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 ### Berries
 
 <details>
-  <summary>Get Berries</summary>
+  <summary>Berries</summary>
   
-  #### All Berries
+  #### Get Berries
 
   ```go
   b := pokeapi.Resource("berry")
   ```
 
-  #### Single Berry
+  #### Get Berry
 
-  *Can pass an ID (e.g. "1") or name (e.g. "cheri").*
+  *Must pass an ID (e.g. "1") or name (e.g. "cheri").*
 
   ```go
   b := pokeapi.Berry("cheri")
@@ -42,17 +42,17 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 </details>
 
 <details>
-  <summary>Get Berry Firmness</summary>
+  <summary>Berry Firmness</summary>
   
-  #### All Berry Firmnesses
+  #### Get Berry Firmnesses
 
   ```go
   b := pokeapi.Resource("berry-firmness")
   ```
 
-  #### Single Berry Firmness
+  #### Get Berry Firmness
 
-  *Can pass an ID (e.g. "1") or name (e.g. "very-soft").*
+  *Must pass an ID (e.g. "1") or name (e.g. "very-soft").*
 
   ```go
   b := pokeapi.BerryFirmness("very-soft")
@@ -61,17 +61,17 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 </details>
 
 <details>
-  <summary>Get Berry Flavors</summary>
+  <summary>Berry Flavors</summary>
   
-  #### All Berry Flavors
+  #### Get Berry Flavors
 
   ```go
   b := pokeapi.Resource("berry-flavor")
   ```
 
-  #### Single Berry
+  #### Get Berry Flavor
 
-  *Can pass an ID (e.g. "1") or name (e.g. "spicy").*
+  *Must pass an ID (e.g. "1") or name (e.g. "spicy").*
 
   ```go
   b := pokeapi.BerryFlavor("spicy")
@@ -80,6 +80,63 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 </details>
 
 ### Contests
+
+<details>
+  <summary>Contest Types</summary>
+  
+  #### Get Contest Types
+
+  ```go
+  b := pokeapi.Resource("berry")
+  ```
+
+  #### Get Contest Type
+
+  *Must pass an ID (e.g. "1") or name (e.g. "cool").*
+
+  ```go
+  b := pokeapi.ContestType("cool")
+  ```
+
+</details>
+
+<details>
+  <summary>Contest Effects</summary>
+  
+  #### Get Contest Effects
+
+  ```go
+  b := pokeapi.Resource("contest-effect")
+  ```
+
+  #### Get Contest Effect
+
+  *Must pass an ID (e.g. "1").*
+
+  ```go
+  b := pokeapi.ContestType("1")
+  ```
+
+</details>
+
+<details>
+  <summary>Super Contest Effects</summary>
+  
+  #### Get Super Contest Effects
+
+  ```go
+  b := pokeapi.Resource("super-contest-effect")
+  ```
+
+  #### Get Super Contest Effect
+
+  *Must pass an ID (e.g. "1").*
+
+  ```go
+  b := pokeapi.ContestType("1")
+  ```
+
+</details>
 
 ### Encounters
 
@@ -103,10 +160,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
 Current progress on remaining endpoints. **Bold** are partially implemented.
 
-### Contests
-- [ ] GET /contest-type/{id or name}/
-- [ ] GET /contest-effect/{id}/
-- [ ] GET /super-contest-effect/{id}/
 ### Encounters
 - [ ] GET /encounter-method/{id or name}/
 - [ ] GET /encounter-condition/{id or name}/
