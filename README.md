@@ -38,7 +38,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   b := pokeapi.Berry("cheri")
   ```
-
 </details>
 
 <details>
@@ -57,7 +56,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   b := pokeapi.BerryFirmness("very-soft")
   ```
-
 </details>
 
 <details>
@@ -76,7 +74,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   b := pokeapi.BerryFlavor("spicy")
   ```
-
 </details>
 
 ### Contests
@@ -97,7 +94,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   c := pokeapi.ContestType("cool")
   ```
-
 </details>
 
 <details>
@@ -116,7 +112,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   c := pokeapi.ContestType("1")
   ```
-
 </details>
 
 <details>
@@ -135,12 +130,47 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   c := pokeapi.ContestType("1")
   ```
-
 </details>
 
 ### Encounters
 
 ### Evolution
+
+<details>
+  <summary>Evolution Chains</summary>
+  
+  #### Get Evolution Chains
+
+  ```go
+  b := pokeapi.Resource("evolution-chain")
+  ```
+
+  #### Get Evolution Chain
+
+  *Must pass an ID (e.g. "1").*
+
+  ```go
+  b := pokeapi.EvolutionChain("1")
+  ```
+</details>
+
+<details>
+  <summary>Evolution Triggers</summary>
+  
+  #### Get Evolution Triggers
+
+  ```go
+  b := pokeapi.Resource("evolution-trigger")
+  ```
+
+  #### Get Evolution Trigger
+
+  *Must pass an ID (e.g. "1") or name (e.g. "level-up").*
+
+  ```go
+  b := pokeapi.EvolutionTrigger("level-up")
+  ```
+</details>
 
 ### Games
 
@@ -166,7 +196,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   m := pokeapi.ContestType("1")
   ```
-
 </details>
 
 ### Moves
@@ -191,7 +220,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   m := pokeapi.ContestType("en")
   ```
-
 </details>
 
 
@@ -203,9 +231,6 @@ Current progress on remaining endpoints. **Bold** are partially implemented.
 - [ ] GET /encounter-method/{id or name}/
 - [ ] GET /encounter-condition/{id or name}/
 - [ ] GET /encounter-condition-value/{id or name}/
-### Evolution
-- [ ] GET /evolution-chain/{id}/
-- [ ] GET /evolution-trigger/{id or name}/
 ### Games
 - [ ] **GET /generation/{id or name}/**
 - [ ] GET /pokedex/{id or name}/
