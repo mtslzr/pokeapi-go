@@ -5,7 +5,7 @@
 [![GoDoc](https://img.shields.io/badge/go-documentation-blue.svg?style=flat)](http://godoc.org/github.com/mtslzr/pokeapi-go)
 [![License](https://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://raw.githubusercontent.com/mtslzr/pokeapi-go/master/LICENSE)
 
-Wrapper for [Poke API](https://pokeapi.co), written in Go.
+Wrapper for [Poke API](https://pokeapi.co), written in Go. *Uses PokeAPI v2.*
 
 - [pokeapi-go](#pokeapi-go)
   - [Documentation](#Documentation)

@@ -1,12 +1,18 @@
+GOCMD=go
+GOMOD=${GOCMD} mod
+GOTEST=${GOCMD} test
+
+CODECOVFLAGS=-coverprofile=coverage.txt -covermode=atomic -coverpkg=./...
+
 all: deps test
 
 deps: tidy vend
 
 test:
-	go test -v ./tests/...
+	${GOTEST} -v -race ${CODECOVFLAGS} ./tests/...
 
 tidy:
-	go mod tidy -v
+	${GOMOD} tidy -v
 
 vend:
-	go mod vendor -v
+	${GOMOD} vendor -v
