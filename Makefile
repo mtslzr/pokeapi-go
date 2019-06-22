@@ -3,7 +3,7 @@ all: deps test
 deps: tidy vend
 
 test:
-	go test -v ./...
+	go test -v ./tests/...
 
 tidy:
 	go mod tidy -v

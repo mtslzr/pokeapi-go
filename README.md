@@ -1,4 +1,5 @@
 # pokeapi-go
+[![CircleCI](https://circleci.com/gh/mtslzr/pokeapi-go.svg?style=svg)](https://circleci.com/gh/mtslzr/pokeapi-go)
 
 Wrapper for Poke API, written in Go.
 

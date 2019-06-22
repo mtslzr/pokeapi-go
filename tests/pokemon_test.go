@@ -1,14 +1,15 @@
-package pokeapi
+package tests
 
 import (
 	"testing"
 
+	pokeapi "github.com/mtslzr/pokeapi-go"
 	"github.com/mtslzr/pokeapi-go/structs"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestAllPokemon(t *testing.T) {
-	result, err := AllPokemon()
+	result, err := pokeapi.AllPokemon()
 	assert.Equal(t, nil, err,
 		"Expect to not receive an error.")
 	assert.IsType(t, &structs.AllPokemon{}, result,
@@ -20,11 +21,21 @@ func TestAllPokemon(t *testing.T) {
 }
 
 func TestPokemon(t *testing.T) {
-	result, err := Pokemon(1)
+	result, err := pokeapi.Pokemon(1)
 	assert.Equal(t, nil, err,
 		"Expect to not receive an error.")
 	assert.IsType(t, &structs.Pokemon{}, result,
 		"Expect to receive a Pokemon struct.")
 	assert.NotEqual(t, nil, result.Name,
 		"Expect to receive Bulbasaur.")
+}
+
+func TestPokemonFail(t *testing.T) {
+	result, err := pokeapi.Pokemon(9999)
+	assert.NotEqual(t, nil, err,
+		"Expect to receive an error.")
+	assert.IsType(t, &structs.Pokemon{}, result,
+		"Expect to receive a Pokemon struct.")
+	assert.Equal(t, "", result.Name,
+		"Expect to receive an empty result.")
 }
