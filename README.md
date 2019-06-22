@@ -3,20 +3,106 @@
 
 Wrapper for [Poke API](https://pokeapi.co), written in Go.
 
-* [How To](#how-to)
-* [Progress](#progress)
+* [Getting Started](#getting-started)
 * [Endpoints](#endpoints)
+* [Not Implemented](#not-implemented)
 * [Documentation](#documentation)
 
-## How To
+## Getting Started
+
+```bash
+go get github.com/mtslzr/pokeapi-go
+```
 
 ```go
 import pokeapi "github.com/mtslzr/pokeapi-go"
 ```
 
-## Progress
+## Endpoints
 
-Current progress of endpoints. **Bold** are partially implemented.
+### Berries
+
+<details>
+  <summary>Get Berries</summary>
+  
+  #### All Berries
+
+  ```go
+  b := pokeapi.Resource("berry")
+  fmt.Println(b)
+  ```
+
+  ```json
+  {
+    "count": 64,
+    "next": "https://pokeapi.co/api/v2/berry?offset=20&limit=20",
+    "previous": null,
+    "results": [
+      {
+        "name": "cheri",
+        "url": "https://pokeapi.co/api/v2/berry/1/"
+      },
+  ...
+  }
+  ```
+
+</details>
+
+<details>
+  <summary>Get Berry Firmness</summary>
+  
+  #### All Berry Firmnesses
+
+  ```go
+  b := pokeapi.Resource("berry-firmness")
+  fmt.Println(b)
+  ```
+
+  ```json
+  {
+    "count": 5,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+        "name": "very-soft",
+        "url": "https://pokeapi.co/api/v2/berry-firmness/1/"
+      },
+  ...
+  }
+  ```
+
+</details>
+
+<details>
+  <summary>Get Berry Flavors</summary>
+  
+  #### All Berry Flavors
+
+  ```go
+  b := pokeapi.Resource("berry-flavor")
+  fmt.Println(b)
+  ```
+
+  ```json
+  {
+    "count": 5,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+        "name": "spicy",
+        "url": "https://pokeapi.co/api/v2/berry-flavor/1/"
+      },
+  ...
+  }
+  ```
+
+</details>
+
+## Not Implementd
+
+Current progress on remaining endpoints. **Bold** are partially implemented.
 
 ### Berries
 - [ ] GET /berry/{id or name}/
@@ -59,76 +145,8 @@ Current progress of endpoints. **Bold** are partially implemented.
 - [ ] GET /move-damage-class/{id or name}/
 - [ ] GET /move-learn-method/{id or name}/
 - [ ] GET /move-target/{id or name}/
-### Pokemon
-- [x] GET /ability/{id or name}/
-- [x] GET /egg-group/{id or name}/
-- [x] GET /gender/{id or name}/
-- [x] GET /growth-rate/{id or name}/
-- [x] GET /nature/{id or name}/
-- [x] GET /pokeathlon-stat/{id or name}/
-- [x] GET /pokemon/{id or name}/
-- [x] GET /pokemon-color/{id or name}/
-- [x] GET /pokemon-form/{id or name}/
-- [x] GET /pokemon-habitat/{id or name}/
-- [x] GET /pokemon-species/{id or name}/
-- [x] GET /stat/{id or name}/
-- [x] GET /type/{id or name}/
 ### Utility
 - [ ] GET /language/{id or name}/
-
-## Endpoints
-
-### Games
-
-#### Get Generations
-
-Returns all generations.
-
-```go
-gens := pokeapi.Generations()
-
-fmt.Println(gens.Count) // 7
-fmt.Println(gens.Results[0].Name) // "generation-i"
-```
-
-#### Get Generation
-
-Returns single generation (by name or ID).
-
-```go
-gen := pokeapi.Generation("1")
-fmt.Println(gen.MainRegion.Name) // "kanto"
-
-gen := pokeapi.GenerationByName("generation-i")
-fmt.Println(gen.MainRegion.Name) // "kanto"
-```
-
-### Pokemon
-
-#### Get Pokemons
-
-Returns all Pokemon.
-
-*NOTE: Pagination not yet implemented.*
-
-```go
-pokes := pokeapi.AllPokemon()
-
-fmt.Println(pokes.Count) // 964
-fmt.Println(pokes.Results[0].Name) // "bulbasaur"
-```
-
-#### Get Pokemon
-
-Returns single Pokemon (by name or ID).
-
-```go
-poke := pokeapi.Pokemon("1")
-fmt.Println(poke.Name) // "bulbasaur"
-
-poke := pokeapi.Pokemon("bulbasaur")
-fmt.Println(poke.Name) // "bulbasaur"
-```
 
 ## Documentation
 
