@@ -87,7 +87,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   #### Get Contest Types
 
   ```go
-  b := pokeapi.Resource("berry")
+  c := pokeapi.Resource("berry")
   ```
 
   #### Get Contest Type
@@ -95,7 +95,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1") or name (e.g. "cool").*
 
   ```go
-  b := pokeapi.ContestType("cool")
+  c := pokeapi.ContestType("cool")
   ```
 
 </details>
@@ -106,7 +106,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   #### Get Contest Effects
 
   ```go
-  b := pokeapi.Resource("contest-effect")
+  c := pokeapi.Resource("contest-effect")
   ```
 
   #### Get Contest Effect
@@ -114,7 +114,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1").*
 
   ```go
-  b := pokeapi.ContestType("1")
+  c := pokeapi.ContestType("1")
   ```
 
 </details>
@@ -125,7 +125,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   #### Get Super Contest Effects
 
   ```go
-  b := pokeapi.Resource("super-contest-effect")
+  c := pokeapi.Resource("super-contest-effect")
   ```
 
   #### Get Super Contest Effect
@@ -133,7 +133,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1").*
 
   ```go
-  b := pokeapi.ContestType("1")
+  c := pokeapi.ContestType("1")
   ```
 
 </details>
@@ -149,6 +149,25 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 ### Locations
 
 ### Machines
+
+<details>
+  <summary>Machines</summary>
+  
+  #### Get Machines
+
+  ```go
+  m := pokeapi.Resource("machine")
+  ```
+
+  #### Get Machine
+
+  *Must pass an ID (e.g. "1").*
+
+  ```go
+  m := pokeapi.ContestType("1")
+  ```
+
+</details>
 
 ### Moves
 
@@ -183,8 +202,6 @@ Current progress on remaining endpoints. **Bold** are partially implemented.
 - [ ] GET /location-area/{id or name}/
 - [ ] GET /pal-park-area/{id or name}/
 - [ ] GET /region/{id or name}/
-### Machines
-- [ ] GET /machine/{id}/
 ### Moves
 - [ ] GET /move/{id or name}/
 - [ ] GET /move-ailment/{id or name}/
