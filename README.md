@@ -175,6 +175,26 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
 ### Utility
 
+<details>
+  <summary>Languages</summary>
+  
+  #### Get Languages
+
+  ```go
+  m := pokeapi.Resource("language")
+  ```
+
+  #### Get Language
+
+  *Must pass an ID (e.g. "1") or name (e.g. "en").*
+
+  ```go
+  m := pokeapi.ContestType("en")
+  ```
+
+</details>
+
+
 ## Not Implemented
 
 Current progress on remaining endpoints. **Bold** are partially implemented.
@@ -210,8 +230,6 @@ Current progress on remaining endpoints. **Bold** are partially implemented.
 - [ ] GET /move-damage-class/{id or name}/
 - [ ] GET /move-learn-method/{id or name}/
 - [ ] GET /move-target/{id or name}/
-### Utility
-- [ ] GET /language/{id or name}/
 
 ## Documentation
 
