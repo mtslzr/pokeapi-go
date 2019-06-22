@@ -42,8 +42,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
         "name": "cheri",
         "url": "https://pokeapi.co/api/v2/berry/1/"
       },
-  ...
-  }
+  //...
   ```
 
 </details>
@@ -68,8 +67,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
         "name": "very-soft",
         "url": "https://pokeapi.co/api/v2/berry-firmness/1/"
       },
-  ...
-  }
+  //...
   ```
 
 </details>
@@ -94,13 +92,32 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
         "name": "spicy",
         "url": "https://pokeapi.co/api/v2/berry-flavor/1/"
       },
-  ...
-  }
+  //...
   ```
 
 </details>
 
-## Not Implementd
+### Contests
+
+### Encounters
+
+### Evolution
+
+### Games
+
+### Items
+
+### Locations
+
+### Machines
+
+### Moves
+
+### Pokemon
+
+### Utility
+
+## Not Implemented
 
 Current progress on remaining endpoints. **Bold** are partially implemented.
 
@@ -120,7 +137,7 @@ Current progress on remaining endpoints. **Bold** are partially implemented.
 - [ ] GET /evolution-chain/{id}/
 - [ ] GET /evolution-trigger/{id or name}/
 ### Games
-- [x] GET /generation/{id or name}/
+- [ ] **GET /generation/{id or name}/**
 - [ ] GET /pokedex/{id or name}/
 - [ ] GET /version/{id or name}/
 - [ ] GET /version-group/{id or name}/
