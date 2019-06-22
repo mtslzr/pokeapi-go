@@ -58,6 +58,24 @@ type Ability struct {
 	} `json:"pokemon"`
 }
 
+// Characteristic is a single characteristic.
+type Characteristic struct {
+	Descriptions []struct {
+		Description string `json:"description"`
+		Language    struct {
+			Name string `json:"name"`
+			URL  string `json:"url"`
+		} `json:"language"`
+	} `json:"descriptions"`
+	GeneModulo  int `json:"gene_modulo"`
+	HighestStat struct {
+		Name string `json:"name"`
+		URL  string `json:"url"`
+	} `json:"highest_stat"`
+	ID             int   `json:"id"`
+	PossibleValues []int `json:"possible_values"`
+}
+
 // EggGroup is a single egg group.
 type EggGroup struct {
 	ID    int    `json:"id"`
@@ -300,6 +318,30 @@ type PokemonForm struct {
 
 // PokemonHabitat is a single Pokemon habitat.
 type PokemonHabitat struct {
+	ID    int    `json:"id"`
+	Name  string `json:"name"`
+	Names []struct {
+		Language struct {
+			Name string `json:"name"`
+			URL  string `json:"url"`
+		} `json:"language"`
+		Name string `json:"name"`
+	} `json:"names"`
+	PokemonSpecies []struct {
+		Name string `json:"name"`
+		URL  string `json:"url"`
+	} `json:"pokemon_species"`
+}
+
+// PokemonShape is a single Pokemon shape.
+type PokemonShape struct {
+	AwesomeNames []struct {
+		AwesomeName string `json:"awesome_name"`
+		Language    struct {
+			Name string `json:"name"`
+			URL  string `json:"url"`
+		} `json:"language"`
+	} `json:"awesome_names"`
 	ID    int    `json:"id"`
 	Name  string `json:"name"`
 	Names []struct {

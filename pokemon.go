@@ -12,6 +12,12 @@ func Ability(id string) (result structs.Ability, err error) {
 	return result, err
 }
 
+// Characteristic returns a single characteristic (by ID).
+func Characteristic(id string) (result structs.Characteristic, err error) {
+	err = do(fmt.Sprintf("characteristic/%s", id), &result)
+	return result, err
+}
+
 // EggGroup returns a single egg group (by name or ID).
 func EggGroup(id string) (result structs.EggGroup, err error) {
 	err = do(fmt.Sprintf("egg-group/%s", id), &result)
@@ -66,7 +72,13 @@ func PokemonHabitat(id string) (result structs.PokemonHabitat, err error) {
 	return result, err
 }
 
-// PokemonSpecies returns a single Pokemon species(by name or ID).
+// PokemonShape returns a single Pokemon shape (by name or ID).
+func PokemonShape(id string) (result structs.PokemonShape, err error) {
+	err = do(fmt.Sprintf("pokemon-shape/%s", id), &result)
+	return result, err
+}
+
+// PokemonSpecies returns a single Pokemon species (by name or ID).
 func PokemonSpecies(id string) (result structs.PokemonSpecies, err error) {
 	err = do(fmt.Sprintf("pokemon-species/%s", id), &result)
 	return result, err

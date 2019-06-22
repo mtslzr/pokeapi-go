@@ -25,6 +25,18 @@ func TestAbilityFail(t *testing.T) {
 		"Expect to receive an empty result.")
 }
 
+func TestCharacteristic(t *testing.T) {
+	result, _ := pokeapi.Characteristic("1")
+	assert.Equal(t, "Loves to eat", result.Descriptions[1].Description,
+		"Expect to receive a description.")
+}
+
+func TestCharacteristicFail(t *testing.T) {
+	result, _ := pokeapi.Characteristic("asdf")
+	assert.Equal(t, 0, len(result.Descriptions),
+		"Expect to receive an empty result.")
+}
+
 func TestEggGroup(t *testing.T) {
 	result, _ := pokeapi.EggGroup("1")
 	assert.Equal(t, "monster", result.Name,
@@ -183,6 +195,24 @@ func TestPokemonHabitatByName(t *testing.T) {
 
 func TestPokemonHabitatFail(t *testing.T) {
 	result, _ := pokeapi.PokemonHabitat("asdf")
+	assert.Equal(t, "", result.Name,
+		"Expect to receive an empty result.")
+}
+
+func TestPokemonShape(t *testing.T) {
+	result, _ := pokeapi.PokemonShape("1")
+	assert.Equal(t, "ball", result.Name,
+		"Expect to receive Ball.")
+}
+
+func TestPokemonShapeByName(t *testing.T) {
+	result, _ := pokeapi.PokemonShape("ball")
+	assert.Equal(t, "ball", result.Name,
+		"Expect to receive Ball.")
+}
+
+func TestPokemonShapeFail(t *testing.T) {
+	result, _ := pokeapi.PokemonShape("asdf")
 	assert.Equal(t, "", result.Name,
 		"Expect to receive an empty result.")
 }

@@ -4,6 +4,7 @@
 Wrapper for [Poke API](https://pokeapi.co), written in Go.
 
 - [pokeapi-go](#pokeapi-go)
+  - [Documentation](#Documentation)
   - [Getting Started](#Getting-Started)
   - [Endpoints](#Endpoints)
     - [Berries](#Berries)
@@ -17,10 +18,10 @@ Wrapper for [Poke API](https://pokeapi.co), written in Go.
     - [Moves](#Moves)
     - [Pokemon](#Pokemon)
     - [Utility](#Utility)
-  - [Not Implemented](#Not-Implemented)
-    - [Items](#Items-1)
-    - [Moves](#Moves-1)
-  - [Documentation](#Documentation)
+
+## Documentation
+
+Full API documentation can be found at [Poke API](https://pokeapi.co/docs/v2.html).
 
 ## Getting Started
 
@@ -316,6 +317,96 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
 ### Items
 
+<details>
+  <summary>Items</summary>
+  
+  #### Get Items
+
+  ```go
+  i := pokeapi.Resource("item")
+  ```
+
+  #### Get Item
+
+  *Must pass an ID (e.g. "1") or name (e.g. "master-ball").*
+
+  ```go
+  i := pokeapi.Item("master-ball")
+  ```
+</details>
+
+<details>
+  <summary>Item Attributes</summary>
+  
+  #### Get Item Attributes
+
+  ```go
+  i := pokeapi.Resource("item-attribute")
+  ```
+
+  #### Get Item Attribute
+
+  *Must pass an ID (e.g. "1") or name (e.g. "countable").*
+
+  ```go
+  i := pokeapi.ItemAttribute("countable")
+  ```
+</details>
+
+<details>
+  <summary>Item Categories</summary>
+  
+  #### Get Item Ctegories
+
+  ```go
+  i := pokeapi.Resource("item-category")
+  ```
+
+  #### Get Item Category
+
+  *Must pass an ID (e.g. "1") or name (e.g. "stat-boosts").*
+
+  ```go
+  i := pokeapi.ItemCategory("stat-boosts")
+  ```
+</details>
+
+<details>
+  <summary>Item Fling Effects</summary>
+  
+  #### Get Item Fling Effects
+
+  ```go
+  i := pokeapi.Resource("item-fling-effect")
+  ```
+
+  #### Get Item Fling Effect
+
+  *Must pass an ID (e.g. "1") or name (e.g. "badly-poison").*
+
+  ```go
+  i := pokeapi.ItemFlingEffect("badly-poison")
+  ```
+</details>
+
+<details>
+  <summary>Item Pockets</summary>
+  
+  #### Get Item Pockets
+
+  ```go
+  i := pokeapi.Resource("item-pocket")
+  ```
+
+  #### Get Item Pocket
+
+  *Must pass an ID (e.g. "1") or name (e.g. "misc").*
+
+  ```go
+  i := pokeapi.ItemPocket("misc")
+  ```
+</details>
+
 ### Locations
 
 <details>
@@ -412,7 +503,403 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
 ### Moves
 
+<details>
+  <summary>Moves</summary>
+  
+  #### Get Moves
+
+  ```go
+  m := pokeapi.Resource("move")
+  ```
+
+  #### Get Move
+
+  *Must pass an ID (e.g. "1") or name (e.g. "pound").*
+
+  ```go
+  m := pokeapi.Move("pound")
+  ```
+</details>
+
+<details>
+  <summary>Move Ailments</summary>
+  
+  #### Get Move Ailments
+
+  ```go
+  m := pokeapi.Resource("move-ailment")
+  ```
+
+  #### Get Move Ailment
+
+  *Must pass an ID (e.g. "1") or name (e.g. "paralysis").*
+
+  ```go
+  m := pokeapi.MoveAilment("paralysis")
+  ```
+</details>
+
+<details>
+  <summary>Move Battle Styles</summary>
+  
+  #### Get Move Battle Styles
+
+  ```go
+  m := pokeapi.Resource("move-battle-style")
+  ```
+
+  #### Get Move Battle Style
+
+  *Must pass an ID (e.g. "1") or name (e.g. "attack").*
+
+  ```go
+  m := pokeapi.MoveBattleStyle("attack")
+  ```
+</details>
+
+<details>
+  <summary>Move Categories</summary>
+  
+  #### Get Move Categories
+
+  ```go
+  m := pokeapi.Resource("move-catgory")
+  ```
+
+  #### Get Move Category
+
+  *Must pass an ID (e.g. "1") or name (e.g. "ailment").*
+
+  ```go
+  m := pokeapi.MoveCategory("ailment")
+  ```
+</details>
+
+<details>
+  <summary>Move Damage Classes</summary>
+  
+  #### Get Move Damage Classes
+
+  ```go
+  m := pokeapi.Resource("move-damage-class")
+  ```
+
+  #### Get Move Damage Class
+
+  *Must pass an ID (e.g. "1") or name (e.g. "status").*
+
+  ```go
+  m := pokeapi.MoveDamageClass("status")
+  ```
+</details>
+
+<details>
+  <summary>Move Learn Methods</summary>
+  
+  #### Get Move Learn Methods
+
+  ```go
+  m := pokeapi.Resource("move-learn-method")
+  ```
+
+  #### Get Move Learn Method
+
+  *Must pass an ID (e.g. "1") or name (e.g. "level-up").*
+
+  ```go
+  m := pokeapi.MoveLearnMethod("level-up")
+  ```
+</details>
+
+<details>
+  <summary>Move Targets</summary>
+  
+  #### Get Move Targets
+
+  ```go
+  m := pokeapi.Resource("move-target")
+  ```
+
+  #### Get Move Target
+
+  *Must pass an ID (e.g. "1") or name (e.g. "specific-move").*
+
+  ```go
+  m := pokeapi.MoveTarget("specific-move")
+  ```
+</details>
+
 ### Pokemon
+
+<details>
+  <summary>Abilities</summary>
+  
+  #### Get Abilities
+
+  ```go
+  p := pokeapi.Resource("ability")
+  ```
+
+  #### Get Ability
+
+  *Must pass an ID (e.g. "1") or name (e.g. "stench").*
+
+  ```go
+  p := pokeapi.Ability("stench")
+  ```
+</details>
+
+<details>
+  <summary>Characteristics</summary>
+  
+  #### Get Characteristics
+
+  ```go
+  p := pokeapi.Resource("characteristic")
+  ```
+
+  #### Get Characteristic
+
+  *Must pass an ID (e.g. "1").*
+
+  ```go
+  p := pokeapi.Characteristic("1")
+  ```
+</details>
+
+<details>
+  <summary>Egg Groups</summary>
+  
+  #### Get Egg Groups
+
+  ```go
+  p := pokeapi.Resource("egg-group")
+  ```
+
+  #### Get Egg Group
+
+  *Must pass an ID (e.g. "1") or name (e.g. "monster").*
+
+  ```go
+  p := pokeapi.EggGroup("monster")
+  ```
+</details>
+
+<details>
+  <summary>Genders</summary>
+  
+  #### Get Genders
+
+  ```go
+  p := pokeapi.Resource("gender")
+  ```
+
+  #### Get Gender
+
+  *Must pass an ID (e.g. "1") or name (e.g. "female").*
+
+  ```go
+  p := pokeapi.Gender("female")
+  ```
+</details>
+
+<details>
+  <summary>Growth Rates</summary>
+  
+  #### Get Growth Rates
+
+  ```go
+  p := pokeapi.Resource("growth-rate")
+  ```
+
+  #### Get Growth Rate
+
+  *Must pass an ID (e.g. "1") or name (e.g. "slow").*
+
+  ```go
+  p := pokeapi.GrowthRate("slow")
+  ```
+</details>
+
+<details>
+  <summary>Natures</summary>
+  
+  #### Get Natures
+
+  ```go
+  p := pokeapi.Resource("nature")
+  ```
+
+  #### Get Nature
+
+  *Must pass an ID (e.g. "1") or name (e.g. "hardy").*
+
+  ```go
+  p := pokeapi.Nature("hardy")
+  ```
+</details>
+
+<details>
+  <summary>Pokeathlon Stats</summary>
+  
+  #### Get Pokeathlon Stats
+
+  ```go
+  p := pokeapi.Resource("pokeathlon-stat")
+  ```
+
+  #### Get Pokeathlon Stat
+
+  *Must pass an ID (e.g. "1") or name (e.g. "speed").*
+
+  ```go
+  p := pokeapi.PokeathlonStat("speed")
+  ```
+</details>
+
+<details>
+  <summary>Pokemon</summary>
+  
+  #### Get All Pokemon
+
+  ```go
+  l := pokeapi.Resource("pokemon")
+  ```
+
+  #### Get Single Pokemon
+
+  *Must pass an ID (e.g. "1") or name (e.g. "bulbasaur").*
+
+  ```go
+  l := pokeapi.Pokemon("bulabsaur")
+  ```
+</details>
+
+<details>
+  <summary>Pokemon Colors</summary>
+  
+  #### Get Pokemon Colors
+
+  ```go
+  p := pokeapi.Resource("pokemon-color")
+  ```
+
+  #### Get Pokemon Color
+
+  *Must pass an ID (e.g. "1") or name (e.g. "black").*
+
+  ```go
+  p := pokeapi.PokemonColor("black")
+  ```
+</details>
+
+<details>
+  <summary>Pokemon Forms</summary>
+  
+  #### Get Pokemon Forms
+
+  ```go
+  p := pokeapi.Resource("pokemon-form")
+  ```
+
+  #### Get Pokemon Form
+
+  *Must pass an ID (e.g. "1") or name (e.g. "bulbasaur").*
+
+  ```go
+  p := pokeapi.PokemonForm("bulabsaur")
+  ```
+</details>
+
+<details>
+  <summary>Pokemon Habitats</summary>
+  
+  #### Get Pokemon Habitats
+
+  ```go
+  p := pokeapi.Resource("pokemon-habitat")
+  ```
+
+  #### Get Pokemon Habitat
+
+  *Must pass an ID (e.g. "1") or name (e.g. "cave").*
+
+  ```go
+  p := pokeapi.PokemonHabitat("cave")
+  ```
+</details>
+
+<details>
+  <summary>Pokemon Shapes</summary>
+  
+  #### Get Pokemon Shapes
+
+  ```go
+  p := pokeapi.Resource("pokemon-shape")
+  ```
+
+  #### Get Pokemon Shape
+
+  *Must pass an ID (e.g. "1") or name (e.g. "ball").*
+
+  ```go
+  p := pokeapi.PokemonShape("ball")
+  ```
+</details>
+
+<details>
+  <summary>Pokemon Species</summary>
+  
+  #### Get All Pokemon Species
+
+  ```go
+  p := pokeapi.Resource("pokemon-species")
+  ```
+
+  #### Get Single Pokemon Species
+
+  *Must pass an ID (e.g. "1") or name (e.g. "bulbasaur").*
+
+  ```go
+  p := pokeapi.PokemonSpecies("bulabsaur")
+  ```
+</details>
+
+<details>
+  <summary>Stats</summary>
+  
+  #### Get Stats
+
+  ```go
+  p := pokeapi.Resource("stat")
+  ```
+
+  #### Get Stat
+
+  *Must pass an ID (e.g. "1") or name (e.g. "hp").*
+
+  ```go
+  p := pokeapi.Stat("hp")
+  ```
+</details>
+
+<details>
+  <summary>Types</summary>
+  
+  #### Get Types
+
+  ```go
+  p := pokeapi.Resource("type")
+  ```
+
+  #### Get Type
+
+  *Must pass an ID (e.g. "1") or name (e.g. "normal").*
+
+  ```go
+  p := pokeapi.Type("normal")
+  ```
+</details>
 
 ### Utility
 
@@ -422,7 +909,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   #### Get Languages
 
   ```go
-  l := pokeapi.Resource("language")
+  u := pokeapi.Resource("language")
   ```
 
   #### Get Language
@@ -430,30 +917,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1") or name (e.g. "en").*
 
   ```go
-  l := pokeapi.Lanuage("en")
+  u := pokeapi.Language("en")
   ```
 </details>
-
-
-## Not Implemented
-
-Current progress on remaining endpoints. **Bold** are partially implemented.
-
-### Items
-- [ ] GET /item/{id or name}/
-- [ ] GET /item-attribute/{id or name}/
-- [ ] GET /item-category/{id or name}/
-- [ ] GET /item-fling-effect/{id or name}/
-- [ ] GET /item-pocket/{id or name}/
-### Moves
-- [ ] GET /move/{id or name}/
-- [ ] GET /move-ailment/{id or name}/
-- [ ] GET /move-battle-style/{id or name}/
-- [ ] GET /move-category/{id or name}/
-- [ ] GET /move-damage-class/{id or name}/
-- [ ] GET /move-learn-method/{id or name}/
-- [ ] GET /move-target/{id or name}/
-
-## Documentation
-
-Full API documentation can be found at [Poke API](https://pokeapi.co/docs/v2.html).
