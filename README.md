@@ -62,17 +62,17 @@ Current progress of endpoints. **Bold** are partially implemented.
 ### Pokemon
 - [x] GET /ability/{id or name}/
 - [x] GET /egg-group/{id or name}/
-- [ ] **GET /gender/{id or name}/**
-- [ ] **GET /growth-rate/{id or name}/**
-- [ ] GET /nature/{id or name}/
-- [ ] **GET /pokeathlon-stat/{id or name}/**
+- [x] GET /gender/{id or name}/
+- [x] GET /growth-rate/{id or name}/
+- [x] GET /nature/{id or name}/
+- [x] GET /pokeathlon-stat/{id or name}/
 - [x] GET /pokemon/{id or name}/
-- [ ] **GET /pokemon-color/{id or name}/**
-- [ ] **GET /pokemon-form/{id or name}/**
-- [ ] **GET /pokemon-habitat/{id or name}/**
-- [ ] **GET /pokemon-species/{id or name}/**
-- [ ] **GET /stat/{id or name}/**
-- [ ] **GET /type/{id or name}/**
+- [x] GET /pokemon-color/{id or name}/
+- [x] GET /pokemon-form/{id or name}/
+- [x] GET /pokemon-habitat/{id or name}/
+- [x] GET /pokemon-species/{id or name}/
+- [x] GET /stat/{id or name}/
+- [x] GET /type/{id or name}/
 ### Utility
 - [ ] GET /language/{id or name}/
 
