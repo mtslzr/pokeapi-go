@@ -1,5 +1,9 @@
 # pokeapi-go
 [![CircleCI](https://circleci.com/gh/mtslzr/pokeapi-go.svg?style=svg)](https://circleci.com/gh/mtslzr/pokeapi-go)
+[![Codecov](https://img.shields.io/codecov/c/github/mtslzr/pokeapi-go.svg?style=flat)](https://codecov.io/gh/mtslzr/pokeapi-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mtslzr/pokeapi-go?style=flat)](https://goreportcard.com/report/github.com/mtslzr/pokeapi-go)
+[![GoDoc](https://img.shields.io/badge/go-documentation-blue.svg?style=flat)](http://godoc.org/github.com/mtslzr/pokeapi-go)
+[![License](https://img.shields.io/badge/license-mit-blue.svg?style=flat)](https://raw.githubusercontent.com/mtslzr/pokeapi-go/master/LICENSE)
 
 Wrapper for [Poke API](https://pokeapi.co), written in Go.
 
@@ -31,7 +35,7 @@ go get github.com/mtslzr/pokeapi-go
 ```
 
 ```go
-import pokeapi "github.com/mtslzr/pokeapi-go"
+import "github.com/mtslzr/pokeapi-go"
 ```
 
 ## Endpoints
