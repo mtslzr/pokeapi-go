@@ -6,10 +6,10 @@ import (
 	"github.com/mtslzr/pokeapi-go/structs"
 )
 
-// AllPokemon returns all pokemon.
-func AllPokemon() (*structs.AllPokemon, error) {
+// Pokemons returns all pokemon.
+func Pokemons() (*structs.Pokemons, error) {
 	endpoint := "pokemon"
-	var result structs.AllPokemon
+	var result structs.Pokemons
 
 	err := do(endpoint, &result)
 	return &result, err

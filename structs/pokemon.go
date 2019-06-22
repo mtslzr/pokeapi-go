@@ -1,7 +1,7 @@
 package structs
 
-// AllPokemon is a list of all pokemon.
-type AllPokemon struct {
+// Pokemons is a list of all pokemon.
+type Pokemons struct {
 	Count   int    `json:"count"`
 	Next    string `json:"next"`
 	Prev    string `json:"previous"`
