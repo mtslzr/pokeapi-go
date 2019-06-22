@@ -3,7 +3,7 @@ package tests
 import (
 	"testing"
 
-	pokeapi "github.com/mtslzr/pokeapi-go"
+	"github.com/mtslzr/pokeapi-go"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -42,4 +42,38 @@ func TestResourceOffsetLimit(t *testing.T) {
 		"Expect to receive exactly three results.")
 	assert.Equal(t, "charizard", result.Results[2].Name,
 		"Expect to receive Charizard last.")
+}
+
+func TestSearch(t *testing.T) {
+	result, _ := pokeapi.Search("pokemon", "saur")
+	assert.Equal(t, 4, len(result.Results),
+		"Expect to receive four results.")
+	assert.Equal(t, "venusaur", result.Results[2].Name,
+		"Expect to receive Venusaur.")
+}
+
+func TestSearchFail(t *testing.T) {
+	result, _ := pokeapi.Search("pokemon", "asdf")
+	assert.Equal(t, 0, len(result.Results),
+		"Expect to receive zero results.")
+}
+
+func TestSearchStartsWith(t *testing.T) {
+	result, _ := pokeapi.Search("pokemon", "^a")
+	assert.Equal(t, 44, len(result.Results),
+		"Expect to receive four results.")
+	assert.Equal(t, "arbok", result.Results[0].Name,
+		"Expect to receive Arbok.")
+
+	result, _ = pokeapi.Search("pokemon", "^bla")
+	assert.Equal(t, 5, len(result.Results),
+		"Expect to receive four results.")
+	assert.Equal(t, "blastoise", result.Results[0].Name,
+		"Expect to receive Blastoise.")
+}
+
+func TestSearchStartsWithFail(t *testing.T) {
+	result, _ := pokeapi.Search("pokemon", "^zzz")
+	assert.Equal(t, 0, len(result.Results),
+		"Expect to receive zero results.")
 }
