@@ -3,7 +3,7 @@ package tests
 import (
 	"testing"
 
-	pokeapi "github.com/mtslzr/pokeapi-go"
+	"github.com/mtslzr/pokeapi-go"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -42,4 +42,12 @@ func TestResourceOffsetLimit(t *testing.T) {
 		"Expect to receive exactly three results.")
 	assert.Equal(t, "charizard", result.Results[2].Name,
 		"Expect to receive Charizard last.")
+}
+
+func TestSearch(t *testing.T) {
+	result, _ := pokeapi.Search("pokemon", "saur")
+	assert.Equal(t, 4, len(result.Results),
+		"Expect to receive four results.")
+	assert.Equal(t, "venusaur", result.Results[2].Name,
+		"Expect to receive Venusaur.")
 }

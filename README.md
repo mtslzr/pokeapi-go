@@ -22,7 +22,9 @@ Wrapper for [Poke API](https://pokeapi.co), written in Go. *Uses PokeAPI v2.*
     - [Moves](#Moves)
     - [Pokemon](#Pokemon)
     - [Utility](#Utility)
-  - [Resource List Parameters](#Resource-List-Parameters)
+  - [Additional Options](#Additional-Options)
+    - [Resource List Parameters](#Resource-List-Parameters)
+    - [Search](#Search)
 
 ## Documentation
 
@@ -926,36 +928,52 @@ import "github.com/mtslzr/pokeapi-go"
   ```
 </details>
 
-## Resource List Parameters
+## Additional Options
+
+### Resource List Parameters
 
 When calling `pokeapi.Resource()` for any resource list, you can optionally pass up to two integers. The first will be an offset (defaults to zero), and the second will be the limit (defaults two twenty).
 
 <details>
   <summary>Default</summary>
   
-```go
-r := pokeapi.Resource("pokemon")
-fmt.Println(len(r.Results)) // 20
-fmt.Println(r.Results[0].Name) // "bulbasaur"
-```
+  ```go
+  r := pokeapi.Resource("pokemon")
+  fmt.Println(len(r.Results)) // 20
+  fmt.Println(r.Results[0].Name) // "bulbasaur"
+  ```
 </details>
 
 <details>
   <summary>Offset</summary>
 
-```go
-r := pokeapi.Resource("pokemon", 3)
-fmt.Println(len(r.Results)) // 20
-fmt.Println(r.Results[0].Name) // "charmander"
-```
+  ```go
+  r := pokeapi.Resource("pokemon", 3)
+  fmt.Println(len(r.Results)) // 20
+  fmt.Println(r.Results[0].Name) // "charmander"
+  ```
 </details>
 
 <details>
   <summary>Offset and Limit</summary>
 
-```go
-r := pokeapi.Resource("pokemon", 6, 10)
-fmt.Println(len(r.Results)) // 10
-fmt.Println(r.Results[0].Name) // "squirtle"
-```
+  ```go
+  r := pokeapi.Resource("pokemon", 6, 10)
+  fmt.Println(len(r.Results)) // 10
+  fmt.Println(r.Results[0].Name) // "squirtle"
+  ```
+</details>
+
+### Search
+
+As an alternative to `pokeapi.Resource()`, you can use Search to filter resource lists. Pass the endpoint, followed by the search term.
+
+<details>
+  <summary>Search</summary>
+
+  ```go
+  s := pokeapi.Search("pokemon", "saur")
+  fmt.Println(len(s.Results)) // 4
+  fmt.Println(s.Results[3].Name) // venusaur-mega
+  ```
 </details>

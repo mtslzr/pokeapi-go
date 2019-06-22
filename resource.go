@@ -2,6 +2,7 @@ package pokeapi
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/mtslzr/pokeapi-go/structs"
 )
@@ -12,7 +13,15 @@ func Resource(endpoint string, params ...int) (result structs.Resource,
 	offset, limit := parseParams(params)
 	err = do(fmt.Sprintf("%s?offset=%d&limit=%d", endpoint, offset, limit),
 		&result)
-	return result, err
+	return
+}
+
+// Search returns resource list, filtered by search term.
+func Search(endpoint string, search string) (result structs.Resource,
+	err error) {
+	err = do(fmt.Sprintf("%s?offset=0&limit=9999", endpoint), &result)
+	result.Results = parseSearch(result.Results, search)
+	return
 }
 
 func parseParams(params []int) (offset int, limit int) {
@@ -24,4 +33,16 @@ func parseParams(params []int) (offset int, limit int) {
 		offset = params[0]
 	}
 	return
+}
+
+func parseSearch(results []structs.Result, search string) []structs.Result {
+	var x int
+	for _, result := range results {
+		if !strings.Contains(result.Name, search) {
+			continue
+		}
+		results[x] = result
+		x++
+	}
+	return results[:x]
 }
