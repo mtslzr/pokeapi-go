@@ -18,6 +18,7 @@ Wrapper for [Poke API](https://pokeapi.co), written in Go.
     - [Moves](#Moves)
     - [Pokemon](#Pokemon)
     - [Utility](#Utility)
+  - [Resource List Parameters](#Resource-List-Parameters)
 
 ## Documentation
 
@@ -919,4 +920,38 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   ```go
   u := pokeapi.Language("en")
   ```
+</details>
+
+## Resource List Parameters
+
+When calling `pokeapi.Resource()` for any resource list, you can optionally pass up to two integers. The first will be an offset (defaults to zero), and the second will be the limit (defaults two twenty).
+
+<details>
+  <summary>Default</summary>
+  
+```go
+r := pokeapi.Resource("pokemon")
+fmt.Println(len(r.Results)) // 20
+fmt.Println(r.Results[0].Name) // "bulbasaur"
+```
+</details>
+
+<details>
+  <summary>Offset</summary>
+
+```go
+r := pokeapi.Resource("pokemon", 3)
+fmt.Println(len(r.Results)) // 20
+fmt.Println(r.Results[0].Name) // "charmander"
+```
+</details>
+
+<details>
+  <summary>Offset and Limit</summary>
+
+```go
+r := pokeapi.Resource("pokemon", 6, 10)
+fmt.Println(len(r.Results)) // 10
+fmt.Println(r.Results[0].Name) // "squirtle"
+```
 </details>
