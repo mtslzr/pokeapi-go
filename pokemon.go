@@ -15,9 +15,9 @@ func Pokemons() (*structs.Pokemons, error) {
 	return &result, err
 }
 
-// Pokemon returns a single pokemon.
-func Pokemon(id int) (*structs.Pokemon, error) {
-	endpoint := fmt.Sprintf("pokemon/%d", id)
+// Pokemon returns a single pokemon (by name or ID).
+func Pokemon(id string) (*structs.Pokemon, error) {
+	endpoint := fmt.Sprintf("pokemon/%s", id)
 	var result structs.Pokemon
 
 	err := do(endpoint, &result)

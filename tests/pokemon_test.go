@@ -21,7 +21,17 @@ func TestPokemons(t *testing.T) {
 }
 
 func TestPokemon(t *testing.T) {
-	result, err := pokeapi.Pokemon(1)
+	result, err := pokeapi.Pokemon("1")
+	assert.Equal(t, nil, err,
+		"Expect to not receive an error.")
+	assert.IsType(t, &structs.Pokemon{}, result,
+		"Expect to receive a Pokemon struct.")
+	assert.Equal(t, "bulbasaur", result.Name,
+		"Expect to receive Bulbasaur.")
+}
+
+func TestPokemonByName(t *testing.T) {
+	result, err := pokeapi.Pokemon("bulbasaur")
 	assert.Equal(t, nil, err,
 		"Expect to not receive an error.")
 	assert.IsType(t, &structs.Pokemon{}, result,
@@ -31,7 +41,7 @@ func TestPokemon(t *testing.T) {
 }
 
 func TestPokemonFail(t *testing.T) {
-	result, err := pokeapi.Pokemon(9999)
+	result, err := pokeapi.Pokemon("digimon")
 	assert.NotEqual(t, nil, err,
 		"Expect to receive an error.")
 	assert.IsType(t, &structs.Pokemon{}, result,

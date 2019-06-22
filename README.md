@@ -11,7 +11,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
 ## Progress
 
-Current progress of endpoints. *Italics* are partially implemented.
+Current progress of endpoints. **Bold** are partially implemented.
 
 ### Berries
 - [ ] GET /berry/{id or name}/
@@ -29,7 +29,7 @@ Current progress of endpoints. *Italics* are partially implemented.
 - [ ] GET /evolution-chain/{id}/
 - [ ] GET /evolution-trigger/{id or name}/
 ### Games
-- [ ] *GET /generation/{id or name}/*
+- [x] GET /generation/{id or name}/
 - [ ] GET /pokedex/{id or name}/
 - [ ] GET /version/{id or name}/
 - [ ] GET /version-group/{id or name}/
@@ -61,7 +61,7 @@ Current progress of endpoints. *Italics* are partially implemented.
 - [ ] GET /growth-rate/{id or name}/
 - [ ] GET /nature/{id or name}/
 - [ ] GET /pokeathlon-stat/{id or name}/
-- [ ] *GET /pokemon/{id or name}/*
+- [x] GET /pokemon/{id or name}/
 - [ ] GET /pokemon-color/{id or name}/
 - [ ] GET /pokemon-form/{id or name}/
 - [ ] GET /pokemon-habitat/{id or name}/
@@ -88,13 +88,13 @@ fmt.Println(gens.Results[0].Name) // "generation-i"
 
 #### Get Generation
 
-Returns single generation (by ID or name).
-
-*NOTE: Name not yet implemented.*
+Returns single generation (by name or ID).
 
 ```go
-gen := pokeapi.Generation(1)
+gen := pokeapi.Generation("1")
+fmt.Println(gen.MainRegion.Name) // "kanto"
 
+gen := pokeapi.GenerationByName("generation-i")
 fmt.Println(gen.MainRegion.Name) // "kanto"
 ```
 
@@ -107,20 +107,20 @@ Returns all Pokemon.
 *NOTE: Pagination not yet implemented.*
 
 ```go
-all := pokeapi.AllPokemon()
+pokes := pokeapi.AllPokemon()
 
-fmt.Println(all.Count) // 964
-fmt.Println(all.Results[0].Name) // "bulbasaur"
+fmt.Println(pokes.Count) // 964
+fmt.Println(pokes.Results[0].Name) // "bulbasaur"
 ```
 
 #### Get Pokemon
 
-Returns single Pokemon (by ID or name).
-
-*NOTE: Name not yet implemented.*
+Returns single Pokemon (by name or ID).
 
 ```go
-bulbasaur := pokeapi.Pokemon(1)
+poke := pokeapi.Pokemon("1")
+fmt.Println(poke.Name) // "bulbasaur"
 
-fmt.Println(bulbasaur.Name) // "bulbasaur"
+poke := pokeapi.Pokemon("bulbasaur")
+fmt.Println(poke.Name) // "bulbasaur"
 ```

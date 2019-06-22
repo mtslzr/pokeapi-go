@@ -15,9 +15,9 @@ func Generations() (*structs.Generations, error) {
 	return &result, err
 }
 
-// Generation returns a single generation.
-func Generation(id int) (*structs.Generation, error) {
-	endpoint := fmt.Sprintf("generation/%d", id)
+// Generation returns a single generation (by name or ID).
+func Generation(id string) (*structs.Generation, error) {
+	endpoint := fmt.Sprintf("generation/%s", id)
 	var result structs.Generation
 
 	err := do(endpoint, &result)
