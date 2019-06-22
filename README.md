@@ -18,8 +18,6 @@ Wrapper for [Poke API](https://pokeapi.co), written in Go.
     - [Pokemon](#Pokemon)
     - [Utility](#Utility)
   - [Not Implemented](#Not-Implemented)
-    - [Encounters](#Encounters-1)
-    - [Games](#Games-1)
     - [Items](#Items-1)
     - [Locations](#Locations-1)
     - [Moves](#Moves-1)
@@ -127,7 +125,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1").*
 
   ```go
-  c := pokeapi.ContestType("1")
+  c := pokeapi.ContestEffect("1")
   ```
 </details>
 
@@ -145,11 +143,65 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1").*
 
   ```go
-  c := pokeapi.ContestType("1")
+  c := pokeapi.SuperContestEffect("1")
   ```
 </details>
 
 ### Encounters
+
+<details>
+  <summary>Encounter Methods</summary>
+  
+  #### Get Encounter Methods
+
+  ```go
+  e := pokeapi.Resource("encounter-method")
+  ```
+
+  #### Get Encounter Method
+
+  *Must pass an ID (e.g. "1") or name (e.g. "walk").*
+
+  ```go
+  e := pokeapi.EncounterMethod("walk")
+  ```
+</details>
+
+<details>
+  <summary>Encounter Conditions</summary>
+  
+  #### Get Encounter Conditions
+
+  ```go
+  e := pokeapi.Resource("encounter-condition")
+  ```
+
+  #### Get Encounter Condition
+
+  *Must pass an ID (e.g. "1") or name (e.g. "swarm").*
+
+  ```go
+  e := pokeapi.EncounterCondition("swarm")
+  ```
+</details>
+
+<details>
+  <summary>Encounter Condition Values</summary>
+  
+  #### Get Encounter Condition Values
+
+  ```go
+  e := pokeapi.Resource("encounter-condition-value")
+  ```
+
+  #### Get Encounter Condition Value
+
+  *Must pass an ID (e.g. "1") or name (e.g. "swarm-yes").*
+
+  ```go
+  e := pokeapi.EncounterConditionValue("swarm-yes")
+  ```
+</details>
 
 ### Evolution
 
@@ -159,7 +211,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   #### Get Evolution Chains
 
   ```go
-  b := pokeapi.Resource("evolution-chain")
+  e := pokeapi.Resource("evolution-chain")
   ```
 
   #### Get Evolution Chain
@@ -167,7 +219,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1").*
 
   ```go
-  b := pokeapi.EvolutionChain("1")
+  e := pokeapi.EvolutionChain("1")
   ```
 </details>
 
@@ -177,7 +229,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   #### Get Evolution Triggers
 
   ```go
-  b := pokeapi.Resource("evolution-trigger")
+  e := pokeapi.Resource("evolution-trigger")
   ```
 
   #### Get Evolution Trigger
@@ -185,11 +237,83 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1") or name (e.g. "level-up").*
 
   ```go
-  b := pokeapi.EvolutionTrigger("level-up")
+  e := pokeapi.EvolutionTrigger("level-up")
   ```
 </details>
 
 ### Games
+
+<details>
+  <summary>Generations</summary>
+  
+  #### Get Generations
+
+  ```go
+  g := pokeapi.Resource("generation")
+  ```
+
+  #### Get Generation
+
+  *Must pass an ID (e.g. "1") or name (e.g. "generation-i").*
+
+  ```go
+  g := pokeapi.Generation("generation-i")
+  ```
+</details>
+
+<details>
+  <summary>Pokedex</summary>
+  
+  #### Get All Pokedex
+
+  ```go
+  g := pokeapi.Resource("pokedex")
+  ```
+
+  #### Get Single Pokedex
+
+  *Must pass an ID (e.g. "1") or name (e.g. "national").*
+
+  ```go
+  g := pokeapi.Pokedex("national")
+  ```
+</details>
+
+<details>
+  <summary>Versions</summary>
+  
+  #### Get Versions
+
+  ```go
+  g := pokeapi.Resource("version")
+  ```
+
+  #### Get Version
+
+  *Must pass an ID (e.g. "1") or name (e.g. "red").*
+
+  ```go
+  g := pokeapi.Version("red")
+  ```
+</details>
+
+<details>
+  <summary>Version Groups</summary>
+  
+  #### Get Version Groups
+
+  ```go
+  g := pokeapi.Resource("version-group")
+  ```
+
+  #### Get Version Group
+
+  *Must pass an ID (e.g. "1") or name (e.g. "red-blue").*
+
+  ```go
+  g := pokeapi.VersionGroup("red-blue")
+  ```
+</details>
 
 ### Items
 
@@ -211,7 +335,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1").*
 
   ```go
-  m := pokeapi.ContestType("1")
+  m := pokeapi.Machine("1")
   ```
 </details>
 
@@ -227,7 +351,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   #### Get Languages
 
   ```go
-  m := pokeapi.Resource("language")
+  l := pokeapi.Resource("language")
   ```
 
   #### Get Language
@@ -235,7 +359,7 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1") or name (e.g. "en").*
 
   ```go
-  m := pokeapi.ContestType("en")
+  l := pokeapi.Lanuage("en")
   ```
 </details>
 
@@ -244,15 +368,6 @@ import pokeapi "github.com/mtslzr/pokeapi-go"
 
 Current progress on remaining endpoints. **Bold** are partially implemented.
 
-### Encounters
-- [ ] GET /encounter-method/{id or name}/
-- [ ] GET /encounter-condition/{id or name}/
-- [ ] GET /encounter-condition-value/{id or name}/
-### Games
-- [ ] **GET /generation/{id or name}/**
-- [ ] GET /pokedex/{id or name}/
-- [ ] GET /version/{id or name}/
-- [ ] GET /version-group/{id or name}/
 ### Items
 - [ ] GET /item/{id or name}/
 - [ ] GET /item-attribute/{id or name}/
