@@ -3,10 +3,27 @@
 
 Wrapper for [Poke API](https://pokeapi.co), written in Go.
 
-* [Getting Started](#getting-started)
-* [Endpoints](#endpoints)
-* [Not Implemented](#not-implemented)
-* [Documentation](#documentation)
+- [pokeapi-go](#pokeapi-go)
+  - [Getting Started](#Getting-Started)
+  - [Endpoints](#Endpoints)
+    - [Berries](#Berries)
+    - [Contests](#Contests)
+    - [Encounters](#Encounters)
+    - [Evolution](#Evolution)
+    - [Games](#Games)
+    - [Items](#Items)
+    - [Locations](#Locations)
+    - [Machines](#Machines)
+    - [Moves](#Moves)
+    - [Pokemon](#Pokemon)
+    - [Utility](#Utility)
+  - [Not Implemented](#Not-Implemented)
+    - [Encounters](#Encounters-1)
+    - [Games](#Games-1)
+    - [Items](#Items-1)
+    - [Locations](#Locations-1)
+    - [Moves](#Moves-1)
+  - [Documentation](#Documentation)
 
 ## Getting Started
 
