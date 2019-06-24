@@ -19,6 +19,11 @@ func init() {
 	c = cache.New(cachemin*time.Minute, cachemax*time.Minute)
 }
 
+// ClearCache clears all cached data.
+func ClearCache() {
+	c.Flush()
+}
+
 func do(endpoint string, obj interface{}) error {
 	cached, found := c.Get(endpoint)
 	if found {
