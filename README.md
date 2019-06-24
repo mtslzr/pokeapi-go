@@ -25,6 +25,7 @@ Wrapper for [Poke API](https://pokeapi.co), written in Go. *Supports PokeAPI v2.
   - [Additional Options](#Additional-Options)
     - [Resource List Parameters](#Resource-List-Parameters)
     - [Resource List Filters](#Resource-List-Filters)
+    - [Caching](#Caching)
 
 ## Documentation
 
@@ -995,3 +996,9 @@ As an alternative to `pokeapi.Resource()`, you can use Search to filter resource
   fmt.Println(s.Results[0].Name) // bulbasaur
   ```
 </details>
+
+### Caching
+
+Calls are automatically cached to cut down on API traffic to PokeAPI, with subsequent calls (up to five minutes currently) returning local data. You can clear *all* existing cache data with `pokeapi.ClearCache()`.
+
+Forced non-cached calls and custom cache expiration coming soon.
