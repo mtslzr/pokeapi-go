@@ -56,7 +56,7 @@ func TestItemCategoryByName(t *testing.T) {
 }
 
 func TestItemCategoryFail(t *testing.T) {
-	result, _ := pokeapi.Item("asdf")
+	result, _ := pokeapi.ItemCategory("asdf")
 	assert.Equal(t, "", result.Name,
 		"Expect to receive an empty result.")
 }
