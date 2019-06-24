@@ -5,14 +5,27 @@ import (
 	"io/ioutil"
 	"net/http"
 	"time"
+
+	"github.com/patrickmn/go-cache"
 )
 
-// APIURL for PokeAPI.
-const APIURL = "https://pokeapi.co/api/v2/"
+const apiurl = "https://pokeapi.co/api/v2/"
+const cachemin = 5
+const cachemax = 10
 
-// Do calls Poke API and returns JSON data.
+var c *cache.Cache
+
+func init() {
+	c = cache.New(cachemin*time.Minute, cachemax*time.Minute)
+}
+
 func do(endpoint string, obj interface{}) error {
-	req, err := http.NewRequest(http.MethodGet, APIURL+endpoint, nil)
+	cached, found := c.Get(endpoint)
+	if found {
+		return json.Unmarshal(cached.([]byte), &obj)
+	}
+
+	req, err := http.NewRequest(http.MethodGet, apiurl+endpoint, nil)
 	if err != nil {
 		return err
 	}
@@ -29,5 +42,6 @@ func do(endpoint string, obj interface{}) error {
 		return err
 	}
 
+	c.Set(endpoint, body, cache.DefaultExpiration)
 	return json.Unmarshal(body, &obj)
 }
