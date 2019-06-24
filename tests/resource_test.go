@@ -76,4 +76,8 @@ func TestSearchStartsWithFail(t *testing.T) {
 	result, _ := pokeapi.Search("pokemon", "^zzz")
 	assert.Equal(t, 0, len(result.Results),
 		"Expect to receive zero results.")
+
+	result, _ = pokeapi.Search("pokemon", "^asdfasdfasdfasdfasdfasdf")
+	assert.Equal(t, 0, len(result.Results),
+		"Expect to receive zero results.")
 }
