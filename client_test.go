@@ -8,24 +8,24 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var endpoint = "machine/1"
-var mockMachine structs.Machine
+var endpoint = "machine?offset=0&limit=1"
+var mockResource structs.Resource
 
 func TestSetCache(t *testing.T) {
 	_, found1 := c.Get(endpoint)
 	assert.Equal(t, false, found1,
 		"Expect to not have cached data before first call.")
 
-	_ = do(endpoint, &mockMachine)
+	_ = do(endpoint, &mockResource)
 	cached2, expires2, found2 := c.GetWithExpiration(endpoint)
 	assert.Equal(t, true, found2,
 		"Expect to have cached data after first call.")
 
-	_ = do(endpoint, &mockMachine)
-	var cachedData structs.Machine
+	_ = do(endpoint, &mockResource)
+	var cachedData structs.Resource
 	json.Unmarshal(cached2.([]byte), &cachedData)
 	cached3, expires3, _ := c.GetWithExpiration(endpoint)
-	assert.Equal(t, cachedData, mockMachine,
+	assert.Equal(t, cachedData, mockResource,
 		"Expect data to match cached data.")
 	assert.Equal(t, cached2, cached3,
 		"Expect cached data to match previously-cached data.")
@@ -36,7 +36,7 @@ func TestSetCache(t *testing.T) {
 func TestClearCache(t *testing.T) {
 	_, found := c.Get(endpoint)
 	if !found {
-		_ = do(endpoint, &mockMachine)
+		_ = do(endpoint, &mockResource)
 		_, found = c.Get(endpoint)
 	}
 	assert.NotEqual(t, false, found,
