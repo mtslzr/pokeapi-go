@@ -1,5 +1,5 @@
 # pokeapi-go
-[![CircleCI](https://circleci.com/gh/mtslzr/pokeapi-go.svg?style=svg)](https://circleci.com/gh/mtslzr/pokeapi-go)
+![Actions](https://github.com/mtslzr/pokeapi-go/workflows/Actions/badge.svg)
 [![Codecov](https://img.shields.io/codecov/c/github/mtslzr/pokeapi-go.svg?style=flat)](https://codecov.io/gh/mtslzr/pokeapi-go)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mtslzr/pokeapi-go?style=flat)](https://goreportcard.com/report/github.com/mtslzr/pokeapi-go)
 [![GoDoc](https://img.shields.io/badge/go-documentation-blue.svg?style=flat)](http://godoc.org/github.com/mtslzr/pokeapi-go)
