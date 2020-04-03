@@ -1,0 +1,17 @@
+name: Actions
+
+on: [push, pull_request]
+
+jobs:
+  build_test:
+    name: Build & Test API
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Make All
+        run: make
+
+      - name: Update Coverage
+        run: back <(curl -s https://codecov.io/bash)
