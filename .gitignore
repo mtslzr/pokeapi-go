@@ -15,5 +15,6 @@ vendor
 coverage.txt
 *.out
 
-# VSCode
+# IDE
+.idea
 .vscode
