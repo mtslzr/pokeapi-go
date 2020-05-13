@@ -75,7 +75,7 @@ func TestNoCache(t *testing.T) {
 	assert.Equal(t, true, found1,
 		"Expect to have cached data after first call.")
 
-	CacheSettings.NoCache = true
+	CacheSettings.UseCache = false
 	_ = do(endpoint, &mockResource)
 	_, expires2, _ := c.GetWithExpiration(endpoint)
 	assert.NotEqual(t, expires1, expires2,
