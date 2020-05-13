@@ -1000,6 +1000,12 @@ As an alternative to `pokeapi.Resource()`, you can use Search to filter resource
 
 ### Caching
 
-Calls are automatically cached to cut down on API traffic to PokeAPI, with subsequent calls (up to five minutes currently) returning local data. You can clear *all* existing cache data with `pokeapi.ClearCache()`.
+Calls are automatically cached to cut down on API traffic to PokeAPI, with subsequent calls returning local data. You can clear *all* existing cache data with `pokeapi.ClearCache()`.
 
-Forced non-cached calls and custom cache expiration coming soon.
+By default, cache lasts five minutes. You can adjust this by setting `pokeapi.CacheSettings.CustomExpire` to another number, in minutes. For example, to use a twenty-minute cache expiration:
+
+```go
+pokeapi.CacheSettings.CustomExpire = 20
+```
+
+Forced non-cached calls coming soon.

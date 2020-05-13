@@ -3,6 +3,7 @@ package pokeapi
 import (
 	"encoding/json"
 	"testing"
+	"time"
 
 	"github.com/mtslzr/pokeapi-go/structs"
 	"github.com/stretchr/testify/assert"
@@ -48,4 +49,21 @@ func TestClearCache(t *testing.T) {
 		"Expect no data found after flushing cache.")
 	assert.Equal(t, nil, nocache,
 		"Expect no data after flushing cache.")
+}
+
+func TestCustomExpiration(t *testing.T) {
+	ClearCache()
+	defaultExpire := time.Now().Add(defaultCacheSettings.MinExpire).Minute()
+	_ = do(endpoint, &mockResource)
+	_, expires1, _ := c.GetWithExpiration(endpoint)
+	assert.Equal(t, defaultExpire, expires1.Minute(),
+		"Expect expiration time to match default setting.")
+
+	CacheSettings.CustomExpire = 20
+	customExpire := time.Now().Add(CacheSettings.CustomExpire * time.Minute).Minute()
+	ClearCache()
+	_ = do(endpoint, &mockResource)
+	_, expires2, _ := c.GetWithExpiration(endpoint)
+	assert.Equal(t, customExpire, expires2.Minute(),
+		"Expect expiration time to match custom setting.")
 }
