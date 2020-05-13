@@ -12,6 +12,9 @@ deps: tidy vend
 test:
 	${GOTEST} -v -race ${CODECOVFLAGS} ./...
 
+test-client:
+	${GOTEST} -v ./.
+
 tidy:
 	${GOMOD} tidy -v
 

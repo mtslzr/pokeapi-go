@@ -3,6 +3,7 @@ package pokeapi
 import (
 	"encoding/json"
 	"testing"
+	"time"
 
 	"github.com/mtslzr/pokeapi-go/structs"
 	"github.com/stretchr/testify/assert"
@@ -48,4 +49,35 @@ func TestClearCache(t *testing.T) {
 		"Expect no data found after flushing cache.")
 	assert.Equal(t, nil, nocache,
 		"Expect no data after flushing cache.")
+}
+
+func TestCustomExpiration(t *testing.T) {
+	ClearCache()
+	defaultExpire := time.Now().Add(defaultCacheSettings.MinExpire).Minute()
+	_ = do(endpoint, &mockResource)
+	_, expires1, _ := c.GetWithExpiration(endpoint)
+	assert.Equal(t, defaultExpire, expires1.Minute(),
+		"Expect expiration time to match default setting.")
+
+	ClearCache()
+	CacheSettings.CustomExpire = 20
+	customExpire := time.Now().Add(CacheSettings.CustomExpire * time.Minute).Minute()
+	_ = do(endpoint, &mockResource)
+	_, expires2, _ := c.GetWithExpiration(endpoint)
+	assert.Equal(t, customExpire, expires2.Minute(),
+		"Expect expiration time to match custom setting.")
+}
+
+func TestNoCache(t *testing.T) {
+	ClearCache()
+	_ = do(endpoint, &mockResource)
+	_, expires1, found1 := c.GetWithExpiration(endpoint)
+	assert.Equal(t, true, found1,
+		"Expect to have cached data after first call.")
+
+	CacheSettings.UseCache = false
+	_ = do(endpoint, &mockResource)
+	_, expires2, _ := c.GetWithExpiration(endpoint)
+	assert.NotEqual(t, expires1, expires2,
+		"Expect cache expiration not to match first call.")
 }
