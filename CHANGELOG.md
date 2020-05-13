@@ -6,8 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Settings for cache (pokeapi.CacheSettings)
-- Additional testing and documentation for cache settings
+- User settings for caching (pokeapi.CacheSettings)
+  - CustomExpire: set a custom cache expiration (in minutes)
+  - UseCache: turn caching on/off
 
 ## [1.3.2] / 2020.04.03
 ### Added

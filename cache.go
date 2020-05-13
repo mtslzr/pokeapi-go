@@ -3,7 +3,8 @@ package pokeapi
 import "time"
 
 var CacheSettings = Settings{
-	NoCache: false,
+	CustomExpire: 0,
+	UseCache: true,
 }
 
 var defaultCacheSettings = defaultSettings{
@@ -20,7 +21,7 @@ type defaultSettings struct {
 // CacheSettings are user settings for cache expiration.
 type Settings struct {
 	CustomExpire time.Duration
-	NoCache		 bool
+	UseCache     bool
 }
 
 // ClearCache clears all cached data.

@@ -19,7 +19,7 @@ func init() {
 
 func do(endpoint string, obj interface{}) error {
 	cached, found := c.Get(endpoint)
-	if found {
+	if found && CacheSettings.UseCache {
 		return json.Unmarshal(cached.([]byte), &obj)
 	}
 

@@ -59,11 +59,25 @@ func TestCustomExpiration(t *testing.T) {
 	assert.Equal(t, defaultExpire, expires1.Minute(),
 		"Expect expiration time to match default setting.")
 
+	ClearCache()
 	CacheSettings.CustomExpire = 20
 	customExpire := time.Now().Add(CacheSettings.CustomExpire * time.Minute).Minute()
-	ClearCache()
 	_ = do(endpoint, &mockResource)
 	_, expires2, _ := c.GetWithExpiration(endpoint)
 	assert.Equal(t, customExpire, expires2.Minute(),
 		"Expect expiration time to match custom setting.")
+}
+
+func TestNoCache(t *testing.T) {
+	ClearCache()
+	_ = do(endpoint, &mockResource)
+	_, expires1, found1 := c.GetWithExpiration(endpoint)
+	assert.Equal(t, true, found1,
+		"Expect to have cached data after first call.")
+
+	CacheSettings.NoCache = true
+	_ = do(endpoint, &mockResource)
+	_, expires2, _ := c.GetWithExpiration(endpoint)
+	assert.NotEqual(t, expires1, expires2,
+		"Expect cache expiration not to match first call.")
 }
