@@ -79,7 +79,7 @@ func retryableGet(resource string) ([]byte, error) {
 			continue
 		} else if resp.StatusCode >= 400 {
 			// if we've done something wrong a retry probably wont help
-			return nil, err
+			return nil, fmt.Errorf("failed to retrieve data from URL %s (code: %d)", resource, resp.StatusCode)
 		}
 		// since the go client handles redirects (3xx) codes, we'll leave those out
 
