@@ -60,7 +60,7 @@ func TestSearchFail(t *testing.T) {
 
 func TestSearchStartsWith(t *testing.T) {
 	result, _ := pokeapi.Search("pokemon", "^a")
-	assert.Equal(t, 44, len(result.Results),
+	assert.Equal(t, 50, len(result.Results),
 		"Expect to receive four results.")
 	assert.Equal(t, "arbok", result.Results[0].Name,
 		"Expect to receive Arbok.")
