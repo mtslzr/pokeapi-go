@@ -78,7 +78,7 @@ func retryableGet(resource string) ([]byte, error) {
 			lasterr = fmt.Errorf("server returned error (code: %d)", resp.StatusCode)
 			continue
 		} else if resp.StatusCode >= 400 {
-			// if we got a 4xx code then screwed up, no sense retrying ..
+			// if we've done something wrong a retry probably wont help
 			return nil, err
 		}
 		// since the go client handles redirects (3xx) codes, we'll leave those out
