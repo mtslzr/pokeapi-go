@@ -97,8 +97,7 @@ func retryableGet(resource string) ([]byte, error) {
 
 // buildURL creates a URL for the given endpoint using the current configuration
 func buildURL(endpoint string) string {
-	apiurl := &url.URL{Scheme: apiScheme, Host: apiHost, Path: defaultAPIUrl + endpoint}
-	return apiurl.String()
+	return fmt.Sprintf("%s://%s%s", apiScheme, apiHost, defaultAPIUrl+endpoint)
 }
 
 func do(endpoint string, obj interface{}) error {
