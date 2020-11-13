@@ -447,6 +447,12 @@ type PokemonSpecies struct {
 	} `json:"varieties"`
 }
 
+// PokemonLocationArea is a single Pokemon location area
+type PokemonLocationArea struct {
+	LocationArea   LocationArea           `json:"location_area"`
+	VersionDetails VersionEncounterDetail `json:"encounter_details"`
+}
+
 // Stat is a single stat.
 type Stat struct {
 	AffectingMoves struct {
