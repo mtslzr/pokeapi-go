@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	pokeapi "github.com/mtslzr/pokeapi-go"
+	"github.com/mtslzr/pokeapi-go/structs"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -27,7 +28,7 @@ func TestAbilityFail(t *testing.T) {
 
 func TestCharacteristic(t *testing.T) {
 	result, _ := pokeapi.Characteristic("1")
-	assert.Equal(t, "Loves to eat", result.Descriptions[1].Description,
+	assert.Equal(t, "Loves to eat", result.Descriptions[2].Description,
 		"Expect to receive a description.")
 }
 
@@ -269,4 +270,15 @@ func TestTypeFail(t *testing.T) {
 	result, _ := pokeapi.Type("asdf")
 	assert.Equal(t, "", result.Name,
 		"Expect to receive an empty result.")
+}
+
+func TestPokemonLocationArea(t *testing.T) {
+	result, _ := pokeapi.PokemonLocationAreas("4")
+	assert.Equal(t, "pallet-town-area", result[0].LocationArea.Name)
+}
+
+// Endpoint returns 404 so request should come back empty
+func TestPokemonLocationAreaFail(t *testing.T) {
+	result, _ := pokeapi.PokemonLocationAreas("asdf")
+	assert.Equal(t, []structs.PokemonLocationArea(nil), result)
 }

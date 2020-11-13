@@ -84,6 +84,12 @@ func PokemonSpecies(id string) (result structs.PokemonSpecies, err error) {
 	return result, err
 }
 
+// PokemonLocationAreas returns all locations a pokemon can be encountered.
+func PokemonLocationAreas(id string) (result []structs.PokemonLocationArea, err error) {
+	err = do(fmt.Sprintf("pokemon/%s/encounters", id), &result)
+	return result, err
+}
+
 // Stat returns a single stat (by name or ID).
 func Stat(id string) (result structs.Stat, err error) {
 	err = do(fmt.Sprintf("stat/%s", id), &result)

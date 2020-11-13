@@ -1,5 +1,14 @@
 package structs
 
+// Encounter is a single encounter
+type Encounter struct {
+	MinLevel       int                     `json:"min_level"`
+	MaxLevel       int                     `json:"max_level"`
+	ConditionValue EncounterConditionValue `json:"condition_value"`
+	Chance         int                     `json:"chance"`
+	Method         EncounterMethod         `json:"method"`
+}
+
 // EncounterMethod is a single encounter method.
 type EncounterMethod struct {
 	ID    int    `json:"id"`
@@ -46,4 +55,11 @@ type EncounterConditionValue struct {
 		Name string `json:"name"`
 		URL  string `json:"url"`
 	} `json:"values"`
+}
+
+// VersionEncounterDetail is a single encounter detail.
+type VersionEncounterDetail struct {
+	Version         Version     `json:"version"`
+	MaxChance       int         `json:"max_chance"`
+	EcounterDetails []Encounter `json:"encounter_details"`
 }
