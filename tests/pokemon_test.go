@@ -28,7 +28,7 @@ func TestAbilityFail(t *testing.T) {
 
 func TestCharacteristic(t *testing.T) {
 	result, _ := pokeapi.Characteristic("1")
-	assert.Equal(t, "Loves to eat", result.Descriptions[1].Description,
+	assert.Equal(t, "Loves to eat", result.Descriptions[2].Description,
 		"Expect to receive a description.")
 }
 
