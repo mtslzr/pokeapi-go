@@ -3,7 +3,7 @@ package pokeapi
 import (
 	"fmt"
 
-	"github.com/mtslzr/pokeapi-go/structs"
+	"github.com/voidshard/pokeapi-go/structs"
 )
 
 // Generation returns a single generation (by name or ID).

@@ -3,7 +3,7 @@ package pokeapi
 import (
 	"fmt"
 
-	"github.com/mtslzr/pokeapi-go/structs"
+	"github.com/voidshard/pokeapi-go/structs"
 )
 
 // EvolutionChain returns a single evolution chain (by ID).
