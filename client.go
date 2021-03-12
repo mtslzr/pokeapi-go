@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"time"
 
 	"github.com/patrickmn/go-cache"
@@ -28,6 +29,13 @@ var (
 
 func init() {
 	c = cache.New(defaultCacheSettings.MinExpire, defaultCacheSettings.MaxExpire)
+
+	papi := os.Getenv("POKEAPI_URL")
+	if papi == "" {
+		return
+	}
+
+	SetAPIPath(papi)
 }
 
 // SetAPIPath configures the Host and Scheme sections used when requesting data.
