@@ -780,7 +780,7 @@ import "github.com/mtslzr/pokeapi-go"
   *Must pass an ID (e.g. "1") or name (e.g. "bulbasaur").*
 
   ```go
-  l := pokeapi.Pokemon("bulabsaur")
+  l := pokeapi.Pokemon("bulbasaur")
   ```
 </details>
 
