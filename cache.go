@@ -4,7 +4,7 @@ import "time"
 
 var CacheSettings = Settings{
 	CustomExpire: 0,
-	UseCache: true,
+	UseCache:     true,
 }
 
 var defaultCacheSettings = defaultSettings{
@@ -32,7 +32,7 @@ func ClearCache() {
 // setCache adds new item to local cache.
 func setCache(endpoint string, body []byte) {
 	if CacheSettings.CustomExpire != 0 {
-		c.Set(endpoint, body, CacheSettings.CustomExpire * time.Minute)
+		c.Set(endpoint, body, CacheSettings.CustomExpire*time.Minute)
 	} else {
 		c.SetDefault(endpoint, body)
 	}
