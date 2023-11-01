@@ -27,8 +27,12 @@ func TestAbilityFail(t *testing.T) {
 
 func TestCharacteristic(t *testing.T) {
 	result, _ := pokeapi.Characteristic("1")
-	assert.Equal(t, "Loves to eat", result.Descriptions[1].Description,
-		"Expect to receive a description.")
+	for _, description := range result.Descriptions {
+		if description.Language.Name == "en" {
+			assert.Equal(t, "Loves to eat", description.Description,
+				"Expect to receive a description.")
+		}
+	}
 }
 
 func TestCharacteristicFail(t *testing.T) {

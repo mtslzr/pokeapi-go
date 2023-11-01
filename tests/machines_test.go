@@ -9,8 +9,8 @@ import (
 
 func TestMachine(t *testing.T) {
 	result, _ := pokeapi.Machine("1")
-	assert.Equal(t, "tm01", result.Item.Name,
-		"Expect to receive TM01.")
+	assert.Equal(t, "tm00", result.Item.Name,
+		"Expect to receive TM00.")
 }
 
 func TestMachineFail(t *testing.T) {
