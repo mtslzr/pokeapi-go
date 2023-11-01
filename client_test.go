@@ -10,7 +10,7 @@ import (
 )
 
 var endpoint = "machine?offset=0&limit=1"
-var mockResource structs.Resource
+var mockResource structs.NamedApiResourceList
 
 func TestSetCache(t *testing.T) {
 	_, found1 := c.Get(endpoint)
@@ -23,7 +23,7 @@ func TestSetCache(t *testing.T) {
 		"Expect to have cached data after first call.")
 
 	_ = do(endpoint, &mockResource)
-	var cachedData structs.Resource
+	var cachedData structs.NamedApiResourceList
 	json.Unmarshal(cached2.([]byte), &cachedData)
 	cached3, expires3, _ := c.GetWithExpiration(endpoint)
 	assert.Equal(t, cachedData, mockResource,

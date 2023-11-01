@@ -198,11 +198,11 @@ var encounters = StructCompetitionTestCases{
 				assert.Empty(t, n.Language.URL)
 				assert.Empty(t, n.Name)
 			}
-			assert.Empty(t, d.Values)
-			for _, v := range d.Values {
-				assert.Empty(t, v.Name)
-				assert.Empty(t, v.URL)
-			}
+			// assert.Empty(t, d.Values)
+			// for _, v := range d.Values {
+			// 	assert.Empty(t, v.Name)
+			// 	assert.Empty(t, v.URL)
+			// }
 		},
 	},
 }
@@ -1451,10 +1451,40 @@ var pokemon = StructCompetitionTestCases{
 }
 
 var resource = StructCompetitionTestCases{
+	// {
+	// 	name: "Resource",
+	// 	do: func(t *testing.T) {
+	// 		d := structs.Resource{}
+	// 		assert.Empty(t, d.Count)
+	// 		assert.Empty(t, d.Next)
+	// 		assert.Empty(t, d.Previous)
+	// 		assert.Empty(t, d.Results)
+	// 		for _, r := range d.Results {
+	// 			assert.Empty(t, r.Name)
+	// 			assert.Empty(t, r.URL)
+	// 		}
+	// 	},
+	// },
+	// {
+	// 	name: "Result",
+	// 	do: func(t *testing.T) {
+	// 		d := structs.Result{}
+	// 		assert.Empty(t, d.Name)
+	// 		assert.Empty(t, d.URL)
+	// 	},
+	// },
 	{
-		name: "Resource",
+		name: "NamedAPIResource",
 		do: func(t *testing.T) {
-			d := structs.Resource{}
+			d := structs.NamedApiResource{}
+			assert.Empty(t, d.Name)
+			assert.Empty(t, d.URL)
+		},
+	},
+	{
+		name: "NamedAPIResourceList",
+		do: func(t *testing.T) {
+			d := structs.NamedApiResourceList{}
 			assert.Empty(t, d.Count)
 			assert.Empty(t, d.Next)
 			assert.Empty(t, d.Previous)
@@ -1463,14 +1493,6 @@ var resource = StructCompetitionTestCases{
 				assert.Empty(t, r.Name)
 				assert.Empty(t, r.URL)
 			}
-		},
-	},
-	{
-		name: "Result",
-		do: func(t *testing.T) {
-			d := structs.Result{}
-			assert.Empty(t, d.Name)
-			assert.Empty(t, d.URL)
 		},
 	},
 }

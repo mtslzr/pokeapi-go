@@ -8,7 +8,7 @@ import (
 )
 
 // Resource returns resource list for an endpoint.
-func Resource(endpoint string, params ...int) (result structs.Resource,
+func Resource(endpoint string, params ...int) (result structs.NamedApiResourceList,
 	err error) {
 	offset, limit := parseParams(params)
 	err = do(fmt.Sprintf("%s?offset=%d&limit=%d", endpoint, offset, limit),
@@ -17,11 +17,11 @@ func Resource(endpoint string, params ...int) (result structs.Resource,
 }
 
 // Search returns resource list, filtered by search term.
-func Search(endpoint string, search string) (result structs.Resource,
+func Search(endpoint string, search string) (result structs.NamedApiResourceList,
 	err error) {
 	err = do(fmt.Sprintf("%s?offset=0&limit=9999", endpoint), &result)
 	result.Results = parseSearch(result.Results, search)
-	result.Count = len(result.Results)
+	result.Count = int64(len(result.Results))
 	return
 }
 
@@ -36,7 +36,7 @@ func parseParams(params []int) (offset int, limit int) {
 	return
 }
 
-func parseSearch(results []structs.Result, search string) []structs.Result {
+func parseSearch(results []structs.NamedApiResource, search string) []structs.NamedApiResource {
 	var x int
 	var substr string
 
