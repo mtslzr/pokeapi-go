@@ -1,6 +1,6 @@
 module github.com/mtslzr/pokeapi-go
 
-go 1.21
+go 1.20
 
 require (
 	github.com/patrickmn/go-cache v2.1.0+incompatible
