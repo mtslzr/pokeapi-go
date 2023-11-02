@@ -54,17 +54,23 @@ jobs:
         run: |
           echo "commit_hash=$(cat SCHEMA_COMMIT)" >> $GITHUB_ENV
 
+      - name: Register Short Commit Hash
+        id: short_commit_hash
+        working-directory: repo
+        run: |
+          echo "short_commit_hash=$(cat SCHEMA_COMMIT | head -c 7)" >> $GITHUB_ENV
+      
       - name: Generate Structs
         working-directory: repo
         run: make structs
-      
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           path: repo
           commit-message: "[Bot] Update structs for commit ${{ env.commit_hash }}"
-          title: 'Update structs for commit ${{ env.commit_hash }}'
-          body: 'Update structs for commit https://github.com/jlord/sheetsee.js/commit/${{ env.commit_hash }} .'
+          title: 'Update structs for commit `${{ env.short_commit_hash }}`'
+          body: 'Update structs for commit https://github.com/PokeAPI/api-data/commit/${{ env.commit_hash }} .'
           branch: external/generate-structs
           base: master
           labels: 'external'
