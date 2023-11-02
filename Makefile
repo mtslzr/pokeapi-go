@@ -6,7 +6,7 @@ SCHEMA_DIR=../api-data/data/schema/
 
 CODECOVFLAGS=-coverprofile=coverage.txt -covermode=atomic -coverpkg=${PACKAGE}
 
-all: structs deps test
+all: deps test
 
 deps: tidy
 
@@ -29,3 +29,7 @@ schema:
 
 jsonschemagen:
 	${GOCMD} install github.com/RyoJerryYu/go-jsonschema/cmd/jsonschemagen@v0.1.1
+
+.PHONY: schema_commit
+schema_commit:
+	curl -sL https://api.github.com/repos/PokeAPI/api-data/git/refs/heads/master | jq -r ".object.sha" > SCHEMA_COMMIT
