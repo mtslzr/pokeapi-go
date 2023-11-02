@@ -48,19 +48,6 @@ jobs:
         working-directory: repo
         run: make schema_commit
       
-      - name: Debug
-        working-directory: repo
-        run: |
-          pwd
-          ls -al
-          ls -al ..
-      
-      - name: Debug Schema
-        working-directory: api-data
-        run: |
-          pwd
-          ls -al
-      
       - name: Register Commit Hash
         id: register_commit
         working-directory: repo
