@@ -18,3 +18,5 @@ coverage.txt
 # IDE
 .idea
 .vscode
+
+/schema
