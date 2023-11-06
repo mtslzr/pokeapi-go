@@ -3,7 +3,7 @@ name: Generate Struct
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: '0 0 12 * *' # Every day at 12pm UTC
+    - cron: '0 12 * * *' # Every day at 12pm UTC
 
 jobs:
   check_schema_update:
