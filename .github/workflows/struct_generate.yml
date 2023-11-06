@@ -41,8 +41,11 @@ jobs:
           fetch-depth: 1
           path: api-data
           repository: PokeAPI/api-data
-      
-      - uses: actions/setup-go@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          cache-dependency-path: repo/go.mod
 
       - name: Fetch Schema Master Commit
         working-directory: repo
